@@ -26,6 +26,9 @@
 {
     NSURL *URL = [self.image urlTileForLevel:level atX:x andY:y];
     ARLog(@"ARTiledImageView (%p) will draw imageID:%@ URL:%@", (__bridge void *)imageView, self.image.imageID, URL);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __builtin_trap();
+    });
     return URL;
 }
 
